@@ -1,0 +1,56 @@
+
+<div #globeContainer *ngIf="!isMapsLoaded">
+  <!-- Video player for the globe video -->
+  <div class="globe-video">
+    <video class="globe"  #videoPlayer  muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+      <source src="assets/Vany.mp4" type="video/mp4" >
+
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<div [ngStyle]="{'display':display}" id="map" style="height: 500px;"></div>
+<div id="capture" ></div>
+
+<div class="form-group">
+  <form #recipeForm="ngForm" (ngSubmit)="onSubmit(recipeForm)">
+    <label for="usr">Recipe name:</label>
+    <input type="text" class="form-control" id="usr"  name="recipe" ngModel>
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+</div>
+
+<div class="container">
+  <h2>Carbon Footprint</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name of ingredient</th>
+        <th>CO2 emmission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

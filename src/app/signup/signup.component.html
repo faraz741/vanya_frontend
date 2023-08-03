@@ -1,0 +1,187 @@
+<section class="ct_login_page_bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 mx-auto">
+              <div class="ct_login_bg mt-0">
+                  <div class="ct_login_title">
+                      <img src="assets/images/logo_green.png" alt="assets/images/logo_green.png">
+                      <h2 class="ct_login_head">Create an Account</h2>
+                      <p class="text-center">Register on the internal platform</p>
+
+                  </div>
+
+                  <form [formGroup]="signUpForm" enctype="multipart/form-data" (ngSubmit)="signup(signUpForm)">
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+                                  <input required type="text" formControlName="firstName" 
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">First Name</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+                                  <input required="" type="text"formControlName="lastName" 
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">Last Name</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-5  mb-md-4">
+
+                                  <input required="" type="email" formControlName="email"
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">Email</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-5 mb-md-4">
+                                  <input required="" type="number" formControlName="number" 
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">Number</label>
+                              </div>
+                          </div>
+
+                      </div>
+                      <hr class="ct_divider mb-4">
+                      <div class="row">
+                          <h4 class="mb-4 header">Your company</h4>
+                          <div class="col-md-12">
+                              <div class="ct_input_group mb-5  mb-md-4">
+                                  <input required="" type="text" formControlName="companyName" 
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">Company Name</label>
+                              </div>
+                              <div class="ct_input_group mb-5  mb-md-4">
+                                  <input required="" type="text" formControlName="vatNumber" autocomplete="off"
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">VAT number</label>
+                              </div>
+                              <div class="ct_input_group mb-5  mb-md-4">
+                                <ng-select [items]="items"
+                                [searchable]="false"
+                                bindLabel="section"
+                                placeholder="Choose Your Area"
+                                appendTo="body"
+                                [(ngModel)]="selected"
+                                [ngModelOptions]="{standalone: true}">
+                     </ng-select>
+                                  <!-- <label class="ct_user_label">Choose your area</label> -->
+                              </div>
+                              <div class="ct_input_group mb-5  mb-md-4">
+                                <ng-select [items]="items2"
+                                [searchable]="false"
+                                bindLabel="manufacture"
+                                placeholder="Choose Your Area"
+                                appendTo="body"
+                                [(ngModel)]="selected2"
+                                [ngModelOptions]="{standalone: true}">
+                     </ng-select>
+                                  <!-- <label class="ct_user_label">Choose your area</label> -->
+                              </div>
+                              <div class="ct_input_group mb-5">
+                                <ng-select [items]="items3"
+                                [searchable]="false"
+                                bindLabel="area"
+                                [multiple]="true"
+                                placeholder="Choose Your Area"
+                                [(ngModel)]="selected3"
+                                [ngModelOptions]="{standalone: true}">
+                     </ng-select>
+                                  <!-- <label class="ct_user_label">Choose your area</label> -->
+                                  <label class="label" for="">Don't worry you can also change it later.
+
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <h4 class="mb-4 mt-3 header">Correspondence address
+                          </h4>
+                          <div class="col-md-12">
+                              <div class="ct_accept_condition">
+                                  <p><input type="checkbox" formControlName="correspondanceAddress">The same as registered address</p>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="ct_input_group mb-4">
+                                  <input required="" type="text" formControlName="street" autocomplete="off"
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">Street</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+                                  <input required="" type="text" formControlName="city" autocomplete="off"
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">City</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+                                  <input required="" type="number" formControlName="zip" autocomplete="off"
+                                      class="ct_text_input">
+                                  <label class="ct_user_label">ZIP</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+                                <ng-select [items]="items4"
+                                [searchable]="false"
+                                bindLabel="country"
+                                placeholder="Country"
+                                [(ngModel)]="selected4"
+                                [ngModelOptions]="{standalone: true}">
+                     </ng-select>
+                                  <!-- <label class="ct_user_label">Country</label> -->
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="ct_input_group mb-4">
+
+                                  <div class="ct_pass_input">
+                                      <input required="" [type]="show ? 'text' : 'password'" formControlName="password" autocomplete="off"
+                                          class="ct_text_input ">
+                                      <label class="ct_user_label">Password</label>
+                                      <i [ngClass]="show ? 'fa fa-eye-slash' :'fa fa-eye'" aria-hidden="true" (click)="showeye()"></i>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="ct_accept_condition">
+                          <p><input type="checkbox" formControlName="privacyCheckbox">I agree to Vanya's<a href="#">privacy policy</a></p>
+                      </div>
+
+
+
+                      <button class="ct_login_btn">
+                          Start 7 days free trial, then 1000 CZK/month
+                      </button>
+
+                      <div class="ct_no_card_requierd mt-4">
+                         <svg
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1cw4hi4"
+                                  focusable="false" aria-hidden="true" viewBox="0 0 24 24"
+                                  data-testid="InfoOutlinedIcon">
+                                  <path
+                                      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z">
+                                  </path>
+                              </svg>
+                          <p>No credit card required.</p>
+                      </div>
+1
+                      <div class="ct_accept_condition mb-0 mt-4">
+                          <p class="justify-content-center">Already have an account<a
+                                routerLink="/">Log In</a></p>
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
